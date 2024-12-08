@@ -1,0 +1,98 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 44
+Server version: 8.0.39 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++----------------------------+
+| Database                   |
++----------------------------+
+| hms                        |
+| hms1                       |
+| hmsproject                 |
+| hospital_management_system |
+| information_schema         |
+| myproject                  |
+| mysql                      |
+| performance_schema         |
+| sakila                     |
+| sqlpro                     |
+| sys                        |
+| t202                       |
+| world                      |
++----------------------------+
+13 rows in set (0.00 sec)
+
+mysql> use hmsproject;
+Database changed
+mysql> show tabels;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tabels' at line 1
+mysql> show tables;
++----------------------+
+| Tables_in_hmsproject |
++----------------------+
+| appointments         |
+| departments          |
+| doctors              |
+| patients             |
++----------------------+
+4 rows in set (0.01 sec)
+
+mysql> select *from patients;
++------------+--------------+------+--------+----------+----------+----------------+
+| Patient_ID | Patient_Name | Age  | Gender | Address  | Contact  | Admission_Date |
++------------+--------------+------+--------+----------+----------+----------------+
+|          1 | Suraj Vasave |   45 | Male   | Vasai    | 555-1234 | 2024-09-12     |
+|          2 | Neeta Jain   |   30 | Female | Thane    | 555-5678 | 2024-09-10     |
+|          3 | Chandan Kori |   25 | Male   | Dadar    | 555-1234 | 2024-09-10     |
+|          4 | Harun Patel  |   36 | Male   | Andheri  | 555-1244 | 2024-09-10     |
+|          5 | Amit Sharma  |   19 | Male   | Borivali | 555-1263 | 2024-09-12     |
+|          6 | Priya Singh  |   23 | Female | Virar    | 555-2536 | 2024-09-12     |
++------------+--------------+------+--------+----------+----------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> select *from doctors;
++-----------+---------------+---------------+----------------+---------------+
+| Doctor_ID | Doctor_Name   | Specialty     | Doctor_Contact | Department_ID |
++-----------+---------------+---------------+----------------+---------------+
+|         1 | Dr. Alice Lee | Cardiology    | 555-9876       |             2 |
+|         2 | Dr. Bob Brown | Orthopedics   | 555-6543       |             1 |
+|         3 | Dr. Vivek     | Dermatologist | 555-1235       |             3 |
+|         4 | Dr. Jivesh    | Psychiatrist  | 555-1246       |             4 |
+|         5 | Dr. Anuj      | Cardiology    | 555-1269       |             2 |
+|         6 | Dr. Neha      | Dermatologist | 555-2533       |             3 |
++-----------+---------------+---------------+----------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> select *from appointments;
++----------------+------------+------------------+--------------------+-----------+
+| Appointment_ID | Patient_ID | Appointment_Date | Appointment_Status | Doctor_ID |
++----------------+------------+------------------+--------------------+-----------+
+|            101 |          1 | 2024-10-10       | Completed          |         1 |
+|            102 |          2 | 2024-10-09       | Pending            |         2 |
+|            103 |          3 | 2024-09-18       | Pending            |         3 |
+|            104 |          4 | 2024-09-08       | Completed          |         4 |
+|            105 |          5 | 2024-09-17       | Pending            |         2 |
+|            106 |          6 | 2024-09-08       | Completed          |         3 |
++----------------+------------+------------------+--------------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> select *from departments;
++---------------+------------------+
+| Department_ID | Department_Name  |
++---------------+------------------+
+|             1 | Orthopedics      |
+|             2 | Cardiology       |
+|             3 | Dermatology      |
+|             4 | Psychiatry       |
+|             5 | General Medicine |
++---------------+------------------+
+5 rows in set (0.00 sec)
